@@ -1,0 +1,30 @@
+ALGORITHM card_sorting
+
+VAR
+    cards: ARRAY[1..N] OF CARD
+    i, j: INTEGER
+    temp: CARD
+
+BEGIN
+    // Read in the unsorted array of cards
+    FOR i := 1 TO N DO
+        READ cards[i]
+    END FOR
+
+    // Sort the cards using Insertion sort
+    FOR i := 2 TO N DO
+        j := i
+        WHILE j > 1 AND cards[j-1] > cards[j] DO
+            temp := cards[j]
+            cards[j] := cards[j-1]
+            cards[j-1] := temp
+            j := j-1
+        END WHILE
+    END FOR
+
+    // Print out the sorted array of cards
+    FOR i := 1 TO N DO
+        WRITE cards[i]
+    END FOR
+
+END
